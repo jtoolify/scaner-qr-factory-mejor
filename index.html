@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escáner de Código QR</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Escáner de Código QR</h1>
+        <div id="qr-reader" class="qr-reader"></div>
+        <button id="scan-button" class="hidden">Detener Escaneo</button>
+        <button id="detect-button">Detectar Código QR</button>
+
+        <div id="decoded-code" class="hidden">
+            <p>Código Decodificado: <span id="codigo-qr"></span></p>
+            <button id="search-button" class="hidden">Buscar Producto</button>
+        </div>
+
+        <div id="result" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
