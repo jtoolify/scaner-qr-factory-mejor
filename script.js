@@ -56,7 +56,49 @@ function stopScanning() {
     }
 }
 
-// Función para buscar el producto en la API y mostrar en un alert
+
+
+
+
+
+
+// Función para abrir el modal y mostrar la información del producto
+const abrirmodal = (datos) => {
+    // Asegúrate de obtener el modal por su ID
+    var modal = document.getElementById("myModal");
+    
+    // Insertar los datos del producto en los elementos correspondientes
+    document.getElementById('producto-codigo').innerText = datos.codigo;
+    document.getElementById('producto-inventario').innerText = datos.inventario;
+    document.getElementById('producto-ubicacion').innerText = datos.ubicacion;
+    document.getElementById('producto-zona').innerText = datos.zona;
+    document.getElementById('producto-detalles').innerText = datos.detalles;
+    
+    // Mostrar el modal
+    modal.style.display = "flex";
+}
+
+// Obtener el botón que abre el modal
+var btn = document.getElementById("openModalBtn");
+
+// Obtener el <span> que cierra el modal
+var closeBtn = document.getElementsByClassName("close-btn")[0];
+
+// Cuando el usuario hace clic en la X, se cierra el modal
+closeBtn.onclick = function() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+// Cuando el usuario hace clic fuera del contenido del modal, se cierra
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Función para buscar el producto en la API y mostrar los datos en el modal
 function fetchProduct(codigo) {
     const url = `https://api-factoryilll.onrender.com/api/productos/${codigo}`;
     
@@ -68,14 +110,11 @@ function fetchProduct(codigo) {
             return response.json();
         })
         .then(data => {
-            alert(`Datos del producto:\nCódigo: ${data.codigo}\nInventario: ${data.inventario}\nUbicación: ${data.ubicacion}\nZona: ${data.zona}\nDetalles: ${data.detalles}`); // Muestra los datos en un alert
+            // Llamar a la función para abrir el modal con los datos obtenidos
+            abrirmodal(data);
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Error al obtener el producto'); // Muestra un alert en caso de error
+            alert('Error al obtener el producto');
         });
 }
-
-
-
-
