@@ -70,8 +70,9 @@ const abrirmodal = (datos) => {
     // Insertar los datos del producto en los elementos correspondientes
     document.getElementById('producto-codigo').innerText = datos.codigo;
     document.getElementById('producto-inventario').innerText = datos.inventario;
+    document.getElementById('producto-producto').innerText = datos.producto;
     document.getElementById('producto-ubicacion').innerText = datos.ubicacion;
-    document.getElementById('producto-zona').innerText = datos.zona;
+    document.getElementById('producto-area').innerText = datos.area;
     document.getElementById('producto-detalles').innerText = datos.detalles;
     document.getElementById('producto-evidencia').href = datos.link;
     
