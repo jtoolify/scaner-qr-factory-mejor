@@ -73,6 +73,7 @@ const abrirmodal = (datos) => {
     document.getElementById('producto-ubicacion').innerText = datos.ubicacion;
     document.getElementById('producto-zona').innerText = datos.zona;
     document.getElementById('producto-detalles').innerText = datos.detalles;
+    document.getElementById('producto-evidencia').href = datos.link;
     
     // Mostrar el modal
     modal.style.display = "flex";
